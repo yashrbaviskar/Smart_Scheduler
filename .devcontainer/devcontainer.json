@@ -1,0 +1,32 @@
+{
+  "name": "Next.js 15 Alpine Dev",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "christian-kohler.npm-intellisense"
+      ]
+    }
+  },
+  // Use 'postCreateCommand' to install dependencies automatically
+  "postCreateCommand": "npm install",
+  
+  // Forward the Next.js dev server port
+  "forwardPorts": [3000],
+  
+  // Run as root inside Alpine to avoid permission issues with node_modules
+  "remoteUser": "root",
+  
+  "features": {
+    // Optional: Adds a nice terminal experience
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "configureZshAsDefaultShell": true
+    }
+  }
+}
